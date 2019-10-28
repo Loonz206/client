@@ -22,18 +22,18 @@ class GoogleAuth extends Component {
   onAuthChange = isSignedIn => {
     const { signIn, signOut } = this.props;
     if (isSignedIn) {
-      signIn();
+      signIn(this.auth.currentUser.get().getId());
     } else {
       signOut();
     }
   };
 
   onSignInClick = () => {
-    window.gapi.auth2.getAuthInstance().signIn();
+    this.auth.signIn();
   };
 
   onSignOutClick = () => {
-    window.gapi.auth2.getAuthInstance().signOut();
+    this.auth.signOut();
   };
 
   renderAuthButton() {
