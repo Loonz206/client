@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
@@ -12,7 +13,8 @@ class GoogleAuth extends Component {
           scope: "email"
         })
         .then(() => {
-          this.auth = window.gapi.auth2.getAuthInstance();
+          const { getAuthInstance } = window.gapi.auth2;
+          this.auth = getAuthInstance();
           this.onAuthChange(this.auth.isSignedIn.get());
           this.auth.isSignedIn.listen(this.onAuthChange);
         });
