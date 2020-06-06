@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
+import { createStream } from "../actions";
 
 class StreamCreate extends Component {
   onSubmit = formValues => {
-    console.log(formValues);
+    this.props.createStream(formValues);
   };
 
   renderInput = ({ input, label, meta }) => {
@@ -41,7 +43,7 @@ class StreamCreate extends Component {
           component={this.renderInput}
           label="Enter Description"
         />
-        <button type="button" className="ui button primary">
+        <button type="submit" className="ui button primary">
           {submitMessage}
         </button>
       </form>
@@ -63,7 +65,12 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: "streamCreate",
   validate
 })(StreamCreate);
+
+export default connect(
+  null,
+  { createStream }
+)(formWrapped);
