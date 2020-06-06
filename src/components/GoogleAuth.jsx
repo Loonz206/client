@@ -39,6 +39,8 @@ class GoogleAuth extends Component {
   };
 
   renderAuthButton() {
+    const signInMessage = "Sign In with Google";
+    const signOutMessage = "Sign Out";
     const { isSignedIn } = this.props;
     if (isSignedIn === null) {
       return null;
@@ -51,7 +53,7 @@ class GoogleAuth extends Component {
           type="button"
         >
           <i className="google icon" />
-          Sign Out
+          {signOutMessage}
         </button>
       );
     }
@@ -62,7 +64,7 @@ class GoogleAuth extends Component {
         type="button"
       >
         <i className="google icon" />
-        Sign In with Google
+        {signInMessage}
       </button>
     );
   }
