@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "history": "^4.10.1",
     "lodash.mapkeys": "^4.6.0",
     "lodash.omit": "^4.5.0",
     "prop-types": "^15.7.2",
