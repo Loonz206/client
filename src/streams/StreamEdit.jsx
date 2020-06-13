@@ -17,11 +17,11 @@ class StreamEdit extends Component {
   };
 
   render() {
-    if (!this.props.streams) {
+    if (!this.props.stream) {
       return <div>Loading...</div>;
     }
     const editStreamHeadline = "Edit a stream";
-    const { title, description } = this.props.streams;
+    const { title, description } = this.props.stream;
     return (
       <div>
         <h3>{editStreamHeadline}</h3>
@@ -38,7 +38,7 @@ class StreamEdit extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { streams: state.streams[ownProps.match.params.id] };
+  return { stream: state.streams[ownProps.match.params.id] };
 };
 
 export default connect(
